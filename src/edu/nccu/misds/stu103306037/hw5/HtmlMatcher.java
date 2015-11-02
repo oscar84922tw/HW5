@@ -54,11 +54,7 @@ public class HtmlMatcher {
 
 			// 2. Extract tag name from fullTag. e.g. "div","/a","/div"...
 			String tagName = null;
-			int indexOfSpace = -1;
-			if ((indexOfSpace = fullTag.indexOf(" ")) == -1/*
-															 * there is no space
-															 * in fullTag
-															 */) {
+			if ((fullTag.indexOf(" ")) == -1) {
 				// If there is no space in the fullTag (e.g.
 				// "<li>","</a>","</div>")
 				// then the tag name will be the words between first and last
@@ -91,7 +87,7 @@ public class HtmlMatcher {
 				// This is an open tag, so simply push it into stack
 				tagStack.push(tagName);
 			} else {
-				// "/div"
+				
 				tagName = tagName.substring(indexOfSlash + 1);
 				// This is an close tag, so we should compare it to the topmost
 				// tag in the stack
